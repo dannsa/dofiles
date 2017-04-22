@@ -15,7 +15,6 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id rofi -show drun
-bindsym $mod+q exec --no-startup-id rofi -show ssh
 
 # change focus
 bindsym $mod+j focus left
@@ -98,6 +97,43 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
@@ -123,6 +159,15 @@ bar {
     i3bar_command i3bar -t
     position top
     status_command py3status -c ~/.config/i3/i3status.config
+    colors {
+    	   background #343d46
+	   statusline #eff1f5
+	   separator #323232
+	   focused_workspace #a3be8c #65737e #eff1f5
+	   active_workspace #4f5b66 #5f676a #eff1f5
+	   inactive_workspace #4f5b66 #4f5b66 #a7adba
+	   urgent_workspace #bf616a #65737e #eff1f5
+  }
 }
 
 # Border and gaps
