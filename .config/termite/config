@@ -1,43 +1,42 @@
 [colors]
 
 # special
-foreground      = #cca1f7
-foreground_bold = #cca1f7
-cursor          = #cca1f7
+foreground      = #ffffff
+foreground_bold = #ffffff
+cursor          = #ffffff
 background      = #000000
 
 # black
-color0  = #322a2c
-color8  = #46423b
+color0  = #2e3436
+color8  = #555753
 
 # red
-color1  = #79220e
-color9  = #aa261f
+color1  = #a31604
+color9  = #c60001
 
 # green
-color2  = #344b1b
-color10 = #76550f
+color2  = #447241
+color10 = #27a343
 
 # yellow
-color3  = #b45b00
-color11 = #b57f02
+color3  = #c1951a
+color11 = #d5a30e
 
 # blue
-color4  = #434045
-color12 = #908862
+color4  = #425387
+color12 = #4a5a8d
 
 # magenta
-color5  = #5c1e25
-color13 = #624a35
+color5  = #965d98
+color13 = #893c8c
 
 # cyan
-color6  = #394745
-color14 = #393e38
+color6  = #06989a
+color14 = #12bccb
 
 # white
-color7  = #ae8842
-color15 = #a59058
-
+color7  = #d3d7cf
+color15 = #eeeeec
 
 [options]
 font = Inconsolata 11
