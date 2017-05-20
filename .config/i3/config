@@ -172,6 +172,9 @@ colors {
 # Border and gaps
 for_window [class="^.*"] border pixel 0
 
+
 #Wallpapers
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
+
+gaps inner 5
